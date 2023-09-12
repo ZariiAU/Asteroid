@@ -9,4 +9,5 @@ public class WeaponData : ScriptableObject
     public string weaponName;
     public float damage;
     public float speed;
+    public float lifetime;
 }
