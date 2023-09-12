@@ -9,6 +9,7 @@ public class ShipMovement : MonoBehaviour
     Rigidbody2D rb;
     Vector2 velocity;
     [SerializeField] float acceleration;
+    [SerializeField] float boostedAcceleration;
     [SerializeField] float stoppingForce;
     [SerializeField] float rotationSpeed;
     [SerializeField] float maxVelocity = 0.04f;
@@ -23,6 +24,7 @@ public class ShipMovement : MonoBehaviour
         ch.backwardInput.AddListener(() => { velocity -= new Vector2(transform.up.x, transform.up.y) * stoppingForce; });
         ch.leftInput.AddListener(() => { transform.eulerAngles += Vector3.forward * rotationSpeed; });
         ch.rightInput.AddListener(() => { transform.eulerAngles += Vector3.forward * -rotationSpeed; });
+        ch.boostInput.AddListener(() => { velocity += new Vector2(transform.up.x, transform.up.y) * boostedAcceleration; });
 
     }
     private void FixedUpdate()

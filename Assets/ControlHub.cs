@@ -8,12 +8,14 @@ public class ControlHub : MonoBehaviour
     public static ControlHub Instance { get; private set; }
 
     public UnityEvent forwardInput;
+    public UnityEvent boostInput;
     public UnityEvent backwardInput;
     public UnityEvent leftInput;
     public UnityEvent rightInput;
     public UnityEvent fireInput;
 
     public UnityEvent forwardReleasedInput;
+    public UnityEvent boostReleasedInput;
     public UnityEvent backwardReleasedInput;
     public UnityEvent leftReleasedInput;
     public UnityEvent rightReleasedInput;
@@ -49,6 +51,10 @@ public class ControlHub : MonoBehaviour
         {
             leftInput.Invoke();
         }
+        if (Input.GetKey(KeyCode.LeftShift))
+        {
+            boostInput.Invoke();
+        }
         if (Input.GetKeyDown(KeyCode.Space))
         {
             fireInput.Invoke();
@@ -68,6 +74,10 @@ public class ControlHub : MonoBehaviour
         if (Input.GetKeyUp(KeyCode.A))
         {
             leftReleasedInput.Invoke();
+        }
+        if (Input.GetKeyUp(KeyCode.LeftShift))
+        {
+            boostReleasedInput.Invoke();
         }
     }
 }

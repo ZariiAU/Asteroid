@@ -10,6 +10,7 @@ public class ThrustAnimationController : MonoBehaviour
     [SerializeField] List<GameObject> rightRotationalThrusters;
     [SerializeField] List<GameObject> forwardThrusters;
     [SerializeField] List<GameObject> reverseThrusters;
+    [SerializeField] List<GameObject> boostForwardThrusters;
 
     private void Start()
     {
@@ -40,6 +41,12 @@ public class ThrustAnimationController : MonoBehaviour
                 thruster.SetActive(true);
             }
         });
+        ch.boostInput.AddListener(() => {
+            foreach (GameObject thruster in boostForwardThrusters)
+            {
+                thruster.SetActive(true);
+            }
+        });
 
         // Released Input
         ch.forwardReleasedInput.AddListener(() => {
@@ -62,6 +69,12 @@ public class ThrustAnimationController : MonoBehaviour
         });
         ch.backwardReleasedInput.AddListener(() => {
             foreach (GameObject thruster in reverseThrusters)
+            {
+                thruster.SetActive(false);
+            }
+        });
+        ch.boostReleasedInput.AddListener(() => {
+            foreach (GameObject thruster in boostForwardThrusters)
             {
                 thruster.SetActive(false);
             }
