@@ -138,7 +138,7 @@ GameObject:
   - component: {fileID: 109173460}
   - component: {fileID: 109173461}
   - component: {fileID: 109173462}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Ship
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -321,6 +321,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0f9c9311aab2460408da55d5abffe1c7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  layerMask:
+    serializedVersion: 2
+    m_Bits: 64
   weaponType: {fileID: 11400000, guid: b58b36bc77d46454c826ab815f230090, type: 2}
   projectile: {fileID: 7307531419025158416, guid: a8ba81740fb3b174f9ca6a7f3d86cc3d, type: 3}
 --- !u!1 &114468503
@@ -333,7 +336,7 @@ GameObject:
   m_Component:
   - component: {fileID: 114468504}
   - component: {fileID: 114468505}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: ForeLeftRotationalThruster
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -407,6 +410,143 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!1 &247682833
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 247682837}
+  - component: {fileID: 247682836}
+  - component: {fileID: 247682835}
+  - component: {fileID: 247682834}
+  - component: {fileID: 247682838}
+  m_Layer: 0
+  m_Name: Triangle
+  m_TagString: Enemy
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &247682834
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 247682833}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b3d17c198b642be4ca9549dd768bafac, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  health: 5
+--- !u!58 &247682835
+CircleCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 247682833}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: 0, y: 0.21133333}
+  serializedVersion: 2
+  m_Radius: 0.5
+--- !u!212 &247682836
+SpriteRenderer:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 247682833}
+  m_Enabled: 1
+  m_CastShadows: 0
+  m_ReceiveShadows: 0
+  m_DynamicOccludee: 1
+  m_StaticShadowCaster: 0
+  m_MotionVectors: 1
+  m_LightProbeUsage: 1
+  m_ReflectionProbeUsage: 1
+  m_RayTracingMode: 0
+  m_RayTraceProcedural: 0
+  m_RenderingLayerMask: 1
+  m_RendererPriority: 0
+  m_Materials:
+  - {fileID: 2100000, guid: a97c105638bdf8b4a8650670310a4cd3, type: 2}
+  m_StaticBatchInfo:
+    firstSubMesh: 0
+    subMeshCount: 0
+  m_StaticBatchRoot: {fileID: 0}
+  m_ProbeAnchor: {fileID: 0}
+  m_LightProbeVolumeOverride: {fileID: 0}
+  m_ScaleInLightmap: 1
+  m_ReceiveGI: 1
+  m_PreserveUVs: 0
+  m_IgnoreNormalsForChartDetection: 0
+  m_ImportantGI: 0
+  m_StitchLightmapSeams: 1
+  m_SelectedEditorRenderState: 0
+  m_MinimumChartSize: 4
+  m_AutoUVMaxDistance: 0.5
+  m_AutoUVMaxAngle: 89
+  m_LightmapParameters: {fileID: 0}
+  m_SortingLayerID: 0
+  m_SortingLayer: 0
+  m_SortingOrder: 0
+  m_Sprite: {fileID: 7482667652216324306, guid: 75f5f34dc1b5347e0b8351032682f224, type: 3}
+  m_Color: {r: 1, g: 1, b: 1, a: 1}
+  m_FlipX: 0
+  m_FlipY: 0
+  m_DrawMode: 0
+  m_Size: {x: 1, y: 1}
+  m_AdaptiveModeThreshold: 0.5
+  m_SpriteTileMode: 0
+  m_WasSpriteAssigned: 1
+  m_MaskInteraction: 0
+  m_SpriteSortPoint: 0
+--- !u!4 &247682837
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 247682833}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 1.1685845, y: 1.73, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 4
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!50 &247682838
+Rigidbody2D:
+  serializedVersion: 4
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 247682833}
+  m_BodyType: 0
+  m_Simulated: 1
+  m_UseFullKinematicContacts: 0
+  m_UseAutoMass: 0
+  m_Mass: 40.87
+  m_LinearDrag: 0
+  m_AngularDrag: 0.05
+  m_GravityScale: 0
+  m_Material: {fileID: 0}
+  m_Interpolate: 0
+  m_SleepingMode: 1
+  m_CollisionDetection: 0
+  m_Constraints: 0
 --- !u!1 &292598635
 GameObject:
   m_ObjectHideFlags: 0
@@ -417,7 +557,7 @@ GameObject:
   m_Component:
   - component: {fileID: 292598636}
   - component: {fileID: 292598637}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Thruster
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -458,11 +598,11 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   leftRotationalThrusters:
-  - {fileID: 114468503}
-  - {fileID: 1247168317}
-  rightRotationalThrusters:
-  - {fileID: 975379109}
   - {fileID: 1232474020}
+  - {fileID: 975379109}
+  rightRotationalThrusters:
+  - {fileID: 1247168317}
+  - {fileID: 114468503}
   forwardThrusters:
   - {fileID: 1745001184}
   reverseThrusters:
@@ -509,6 +649,18 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls: []
   fireInput:
+    m_PersistentCalls:
+      m_Calls: []
+  forwardReleasedInput:
+    m_PersistentCalls:
+      m_Calls: []
+  backwardReleasedInput:
+    m_PersistentCalls:
+      m_Calls: []
+  leftReleasedInput:
+    m_PersistentCalls:
+      m_Calls: []
+  rightReleasedInput:
     m_PersistentCalls:
       m_Calls: []
 --- !u!4 &498394307
@@ -596,7 +748,7 @@ Camera:
   m_Enabled: 1
   serializedVersion: 2
   m_ClearFlags: 2
-  m_BackGroundColor: {r: 0.19215687, g: 0.3019608, b: 0.4745098, a: 0}
+  m_BackGroundColor: {r: 0.14150941, g: 0.14150941, b: 0.14150941, a: 0}
   m_projectionMatrixMode: 1
   m_GateFitMode: 2
   m_FOVAxisMode: 0
@@ -765,7 +917,7 @@ GameObject:
   m_Component:
   - component: {fileID: 975379110}
   - component: {fileID: 975379111}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: ForeRightRotationalThruster (1)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -849,7 +1001,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1232474021}
   - component: {fileID: 1232474022}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: AftRightRotationalThruster
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -933,7 +1085,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1247168318}
   - component: {fileID: 1247168319}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: AftLeftRotationalThruster
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1017,7 +1169,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1598189898}
   - component: {fileID: 1598189899}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: ReverseThruster
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1101,7 +1253,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1745001185}
   - component: {fileID: 1745001186}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: ForwardThrust
   m_TagString: Untagged
   m_Icon: {fileID: 0}

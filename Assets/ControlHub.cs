@@ -13,6 +13,11 @@ public class ControlHub : MonoBehaviour
     public UnityEvent rightInput;
     public UnityEvent fireInput;
 
+    public UnityEvent forwardReleasedInput;
+    public UnityEvent backwardReleasedInput;
+    public UnityEvent leftReleasedInput;
+    public UnityEvent rightReleasedInput;
+
     private void Awake()
     {
         // If there is an instance, and it's not me, delete myself.
@@ -47,6 +52,22 @@ public class ControlHub : MonoBehaviour
         if (Input.GetKeyDown(KeyCode.Space))
         {
             fireInput.Invoke();
+        }
+        if (Input.GetKeyUp(KeyCode.W))
+        {
+            forwardReleasedInput.Invoke();
+        }
+        if (Input.GetKeyUp(KeyCode.S))
+        {
+            backwardReleasedInput.Invoke();
+        }
+        if (Input.GetKeyUp(KeyCode.D))
+        {
+            rightReleasedInput.Invoke();
+        }
+        if (Input.GetKeyUp(KeyCode.A))
+        {
+            leftReleasedInput.Invoke();
         }
     }
 }
