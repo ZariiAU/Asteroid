@@ -5,13 +5,11 @@ using UnityEngine;
 
 public class Projectile : MonoBehaviour
 {
-    [SerializeField] WeaponData weaponData;
+    public WeaponData weaponData;
     string targetTag = "Enemy";
 
     private void Update()
     {
-        transform.position = transform.position + transform.forward * weaponData.speed;
+        transform.position += transform.up * weaponData.speed;
     }
-
-
 }

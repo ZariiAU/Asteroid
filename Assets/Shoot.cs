@@ -4,14 +4,12 @@ using UnityEngine;
 
 public class Shoot : MonoBehaviour
 {
-    [SerializeField] IWeapon selectedWeapon;
+    [SerializeField] Weapon selectedWeapon;
+    ControlHub ch;
 
-    // Update is called once per frame
-    void Update()
+    private void Start()
     {
-        if (Input.GetKeyDown(KeyCode.Space))
-        {
-            selectedWeapon.Fire();
-        }
+        ch = ControlHub.Instance;
+        ch.fireInput.AddListener(() => { selectedWeapon.Fire(); });
     }
 }
