@@ -12,7 +12,6 @@ public class ShipMovement : MonoBehaviour
     [SerializeField] float boostedAcceleration;
     [SerializeField] float stoppingForce;
     [SerializeField] float rotationSpeed;
-    [SerializeField] float maxVelocity = 0.04f;
 
     private void Start()
     {
