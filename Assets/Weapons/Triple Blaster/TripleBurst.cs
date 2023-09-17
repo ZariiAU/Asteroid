@@ -7,8 +7,12 @@ public class TripleBurst : Weapon
     [SerializeField] LayerMask layerMask;
 
     [SerializeField] WeaponData weaponType;
-    [SerializeField] GameObject projectile;
+    GameObject projectile;
 
+    private void Awake()
+    {
+        projectile = weaponType.projectilePrefab;
+    }
 
     public override void Fire()
     {

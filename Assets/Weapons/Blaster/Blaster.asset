@@ -17,3 +17,4 @@ MonoBehaviour:
   damage: 2
   speed: 327.8
   lifetime: 3
+  projectilePrefab: {fileID: 7307531419025158416, guid: a8ba81740fb3b174f9ca6a7f3d86cc3d, type: 3}

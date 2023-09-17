@@ -10,4 +10,5 @@ public class WeaponData : ScriptableObject
     public float damage;
     public float speed;
     public float lifetime;
+    public GameObject projectilePrefab;
 }
