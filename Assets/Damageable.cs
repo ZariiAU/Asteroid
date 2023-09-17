@@ -23,5 +23,6 @@ public class Damageable : MonoBehaviour, IDamageable
     {
         Debug.Log("Destroyed" + gameObject.name, gameObject);
         onDeath.Invoke();
+        CameraShake.Instance.ShakeCamera();
     }
 }

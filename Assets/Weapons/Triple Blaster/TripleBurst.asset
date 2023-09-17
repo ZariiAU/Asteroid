@@ -16,4 +16,4 @@ MonoBehaviour:
   weaponName: Triple Burst
   damage: 1
   speed: 327.8
-  lifetime: 1
+  lifetime: 3
