@@ -1,9 +1,11 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Events;
 
 public class Damageable : MonoBehaviour, IDamageable
 {
+    [SerializeField] UnityEvent onDeath;
     public float health;
     public void Damage(float damageAmount)
     {
@@ -20,17 +22,6 @@ public class Damageable : MonoBehaviour, IDamageable
     public void Destroy()
     {
         Debug.Log("Destroyed" + gameObject.name, gameObject);
-    }
-
-    // Start is called before the first frame update
-    void Start()
-    {
-        
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
-        
+        onDeath.Invoke();
     }
 }

@@ -16,3 +16,4 @@ MonoBehaviour:
   weaponName: Blaster
   damage: 2
   speed: 327.8
+  lifetime: 1

@@ -19,15 +19,15 @@ public class ShipMovement : MonoBehaviour
         ch = ControlHub.Instance;
             
         // Add inputs to events
-        ch.forwardInput.AddListener(() => { velocity += new Vector2(transform.up.x, transform.up.y) * acceleration; });
-        ch.backwardInput.AddListener(() => { velocity -= new Vector2(transform.up.x, transform.up.y) * stoppingForce; });
-        ch.leftInput.AddListener(() => { transform.eulerAngles += Vector3.forward * rotationSpeed; });
-        ch.rightInput.AddListener(() => { transform.eulerAngles += Vector3.forward * -rotationSpeed; });
-        ch.boostInput.AddListener(() => { velocity += new Vector2(transform.up.x, transform.up.y) * boostedAcceleration; });
+        ch.forwardInput.AddListener(() => { velocity += new Vector2(transform.up.x, transform.up.y) * acceleration; rb.velocity = velocity; });
+        ch.backwardInput.AddListener(() => { velocity -= new Vector2(transform.up.x, transform.up.y) * stoppingForce; rb.velocity = velocity; });
+        ch.leftInput.AddListener(() => { transform.eulerAngles += Vector3.forward * rotationSpeed; rb.velocity = velocity; });
+        ch.rightInput.AddListener(() => { transform.eulerAngles += Vector3.forward * -rotationSpeed; rb.velocity = velocity; });
+        ch.boostInput.AddListener(() => { velocity += new Vector2(transform.up.x, transform.up.y) * boostedAcceleration; rb.velocity = velocity; });
 
     }
     private void FixedUpdate()
     {
-        rb.velocity = velocity;
+        velocity = rb.velocity;
     }
 }
