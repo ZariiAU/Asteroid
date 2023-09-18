@@ -4961,6 +4961,7 @@ GameObject:
   - component: {fileID: 498394306}
   - component: {fileID: 498394308}
   - component: {fileID: 498394309}
+  - component: {fileID: 498394310}
   m_Layer: 0
   m_Name: Managers
   m_TagString: Untagged
@@ -5057,10 +5058,23 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ba8d93b60548c4f4887c4597927708b1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  duration: 1
+  duration: 0.52
   strength: 0.657
   vibrato: 41
   randomness: 1
+--- !u!114 &498394310
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 498394305}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 619daede4e892bb4b83f6c096230207c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  player: {fileID: 285660502}
 --- !u!1 &519420028
 GameObject:
   m_ObjectHideFlags: 0

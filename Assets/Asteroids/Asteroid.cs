@@ -5,15 +5,25 @@ using UnityEngine;
 public class Asteroid : MonoBehaviour
 {
     Camera cam;
+    Rigidbody2D rb;
+    Rigidbody2D playerRigidbody;
     bool hasEnteredScreen = false;
-    [SerializeField] float damage = 5; 
+
+    [SerializeField] float damage = 5;
+    [SerializeField] float maxForce = 22000;
+    [SerializeField] float minForce = 11000;
 
     private void Start()
     {
+        rb = GetComponent<Rigidbody2D>();
         cam = Camera.main;
+        playerRigidbody = PlayerTracker.Instance.Player.GetComponent<Rigidbody2D>();
+
+        // Launch the Asteroid at the target.
+        LaunchAtTarget2D(playerRigidbody.position);
     }
 
-    private void Update()
+    private void FixedUpdate()
     {
         if(CheckOffScreen() == false)
         {
@@ -30,6 +40,11 @@ public class Asteroid : MonoBehaviour
             if (collision.collider.TryGetComponent<Damageable>(out Damageable damageable))
                 damageable.Damage(damage);
         }
+    }
+
+    void LaunchAtTarget2D(Vector2 targetPosition)
+    {
+        rb.AddForce((targetPosition - rb.position).normalized * Random.Range(minForce, maxForce));
     }
 
     bool CheckOffScreen()
@@ -49,7 +64,11 @@ public class Asteroid : MonoBehaviour
     {
         if(CheckOffScreen() && hasEnteredScreen)
         {
-            Destroy(gameObject);
+            hasEnteredScreen = false;
+            rb.velocity = rb.velocity;
+            rb.angularVelocity = rb.angularVelocity;
+            rb.MovePosition(-transform.position);
+            //LaunchAtTarget2D(playerRigidbody.position);
         }
     }
 }
