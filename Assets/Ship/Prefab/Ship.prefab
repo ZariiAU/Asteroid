@@ -63,7 +63,6 @@ MonoBehaviour:
     serializedVersion: 2
     m_Bits: 64
   weaponType: {fileID: 11400000, guid: b58b36bc77d46454c826ab815f230090, type: 2}
-  projectile: {fileID: 7307531419025158416, guid: a8ba81740fb3b174f9ca6a7f3d86cc3d, type: 3}
 --- !u!114 &1861556521116061245
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -80,7 +79,6 @@ MonoBehaviour:
     serializedVersion: 2
     m_Bits: 0
   weaponType: {fileID: 11400000, guid: 63889369e6371c74d9794ed92a6f77a1, type: 2}
-  projectile: {fileID: 7307531419025158416, guid: a8ba81740fb3b174f9ca6a7f3d86cc3d, type: 3}
 --- !u!1 &2615307834887969595
 GameObject:
   m_ObjectHideFlags: 0
@@ -750,10 +748,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5695cf12bc213aa40a7101241b03682f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  acceleration: 0.01
-  boostedAcceleration: 0.02
-  stoppingForce: 0.01
-  rotationSpeed: 0.5
+  acceleration: 3
+  boostedAcceleration: 5
+  stoppingForce: 2
+  rotationSpeed: 200
 --- !u!50 &2615307836804113862
 Rigidbody2D:
   serializedVersion: 4
@@ -833,6 +831,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b3d17c198b642be4ca9549dd768bafac, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  onDeath:
+    m_PersistentCalls:
+      m_Calls: []
   health: 10
 --- !u!1 &2615307836809435522
 GameObject:
