@@ -20,6 +20,9 @@ public class ControlHub : MonoBehaviour
     public UnityEvent leftReleasedInput;
     public UnityEvent rightReleasedInput;
 
+    public UnityEvent upScrollInput;
+    public UnityEvent downScrollInput;
+
     private void Awake()
     {
         // If there is an instance, and it's not me, delete myself.
@@ -78,6 +81,14 @@ public class ControlHub : MonoBehaviour
         if (Input.GetKeyUp(KeyCode.LeftShift))
         {
             boostReleasedInput.Invoke();
+        }
+        if (Input.GetAxis("Mouse ScrollWheel") > 0)
+        {
+            upScrollInput.Invoke();
+        }
+        else if (Input.GetAxis("Mouse ScrollWheel") < 0)
+        {
+            downScrollInput.Invoke();
         }
     }
 }

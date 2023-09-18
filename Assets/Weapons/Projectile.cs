@@ -27,6 +27,7 @@ public class Projectile : MonoBehaviour
         if (collision.collider.CompareTag(targetTag))
         {
             collision.collider.GetComponent<IDamageable>().Damage(weaponData.damage);
+            PlayerTracker.Instance.Player.GetComponentInChildren<AudioSource>().PlayOneShot(weaponData.impactSoundEffect);
             Destroy(gameObject);
         }
     }

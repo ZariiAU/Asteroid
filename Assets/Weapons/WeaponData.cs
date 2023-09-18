@@ -12,4 +12,5 @@ public class WeaponData : ScriptableObject
     public float lifetime;
     public GameObject projectilePrefab;
     public AudioClip firingSoundEffect;
+    public AudioClip impactSoundEffect;
 }

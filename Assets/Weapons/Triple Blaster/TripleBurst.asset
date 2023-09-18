@@ -19,3 +19,4 @@ MonoBehaviour:
   lifetime: 3
   projectilePrefab: {fileID: 7307531419025158416, guid: 7a3cb99a39f3c0949947c30d1e564cf8, type: 3}
   firingSoundEffect: {fileID: 8300000, guid: 92df9fdfedd65404ca4a9f66efed0b67, type: 3}
+  impactSoundEffect: {fileID: 8300000, guid: 25ed39e95df773448888f232dfbcf284, type: 3}
