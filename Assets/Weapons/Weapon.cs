@@ -4,5 +4,10 @@ using UnityEngine;
 
 public abstract class Weapon : MonoBehaviour
 {
-    public abstract void Fire();
+    [SerializeField] protected AudioSource audioSource;
+    [SerializeField] protected WeaponData weaponType;
+    public virtual void Fire()
+    {
+        audioSource.PlayOneShot(weaponType.firingSoundEffect);
+    }
 }

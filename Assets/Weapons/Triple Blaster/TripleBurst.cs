@@ -5,8 +5,6 @@ using UnityEngine;
 public class TripleBurst : Weapon
 {
     [SerializeField] LayerMask layerMask;
-
-    [SerializeField] WeaponData weaponType;
     GameObject projectile;
 
     private void Awake()
@@ -16,6 +14,8 @@ public class TripleBurst : Weapon
 
     public override void Fire()
     {
+        base.Fire();
+
         // Create bullet
         GameObject _projectile = Instantiate(projectile, transform.position, transform.rotation);
         GameObject _projectile2 = Instantiate(projectile, transform.position, transform.rotation);

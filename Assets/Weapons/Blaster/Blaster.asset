@@ -18,3 +18,4 @@ MonoBehaviour:
   speed: 327.8
   lifetime: 3
   projectilePrefab: {fileID: 7307531419025158416, guid: a8ba81740fb3b174f9ca6a7f3d86cc3d, type: 3}
+  firingSoundEffect: {fileID: 8300000, guid: 92df9fdfedd65404ca4a9f66efed0b67, type: 3}

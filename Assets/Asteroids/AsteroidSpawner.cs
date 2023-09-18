@@ -9,6 +9,15 @@ public class AsteroidSpawner : MonoBehaviour
     [SerializeField] GameObject player;
     [SerializeField] float maxForce;
     [SerializeField] float minForce;
+    [SerializeField] int asteroidSpawnAmount = 6;
+
+    private void Start()
+    {
+        for(int i = 0; i < asteroidSpawnAmount; i++)
+        {
+            SpawnAsteroid();
+        }
+    }
 
     public void SpawnAsteroid()
     {

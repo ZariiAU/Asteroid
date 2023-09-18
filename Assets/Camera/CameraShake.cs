@@ -32,7 +32,18 @@ public class CameraShake : MonoBehaviour
     [ContextMenu("Shake")]
     public void ShakeCamera()
     {
-        StartCoroutine(Shake());
+        Vector3 camPrevPos = cam.transform.position;
+
+        if (!isShaking)
+        {
+            StartCoroutine(Shake());
+        }
+        else
+        {
+            StopAllCoroutines();
+            cam.transform.position = camPrevPos;
+            StartCoroutine(Shake());
+        }
     }
 
     public void ShakeCamera(float _duration, float _strength, int _vibrato, float _randomness)
@@ -42,23 +53,17 @@ public class CameraShake : MonoBehaviour
 
     IEnumerator Shake()
     {
-        if (!isShaking)
-        {
-            isShaking = true;
-            cam.transform.DOShakePosition(duration, strength, vibrato, randomness, false, true);
-            yield return new WaitForSeconds(duration);
-            isShaking = false;
-        }
+        isShaking = true;
+        cam.transform.DOShakePosition(duration, strength, vibrato, randomness, false, true);
+        yield return new WaitForSeconds(duration);
+        isShaking = false;
     }
     IEnumerator Shake(float _duration, float _strength, int _vibrato, float _randomness)
     {
-        if (!isShaking)
-        {
-            isShaking = true;
-            cam.transform.DOShakePosition(duration, strength, vibrato, randomness, false, true);
-            yield return new WaitForSeconds(duration);
-            isShaking = false;
-        }
+        isShaking = true;
+        cam.transform.DOShakePosition(duration, strength, vibrato, randomness, false, true);
+        yield return new WaitForSeconds(duration);
+        isShaking = false;
     }
 
 }

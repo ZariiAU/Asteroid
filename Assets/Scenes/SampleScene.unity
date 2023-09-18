@@ -5046,6 +5046,7 @@ MonoBehaviour:
   player: {fileID: 285660502}
   maxForce: 22000
   minForce: 10000
+  asteroidSpawnAmount: 6
 --- !u!114 &498394309
 MonoBehaviour:
   m_ObjectHideFlags: 0
