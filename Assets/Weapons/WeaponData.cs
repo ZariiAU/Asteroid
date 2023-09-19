@@ -5,7 +5,7 @@ using UnityEngine;
 [CreateAssetMenu(menuName = "New Weapon Data")]
 public class WeaponData : ScriptableObject
 {
-    public float fireRate;
+    public float cooldown;
     public string weaponName;
     public float damage;
     public float speed;

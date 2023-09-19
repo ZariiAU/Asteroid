@@ -12,7 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7141a76eb334b1a47baf925add7e3dfd, type: 3}
   m_Name: TripleBurst
   m_EditorClassIdentifier: 
-  fireRate: 1
+  cooldown: 1
   weaponName: Triple Burst
   damage: 1
   speed: 327.8

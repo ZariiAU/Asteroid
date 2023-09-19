@@ -14,15 +14,19 @@ public class Blaster : Weapon
 
     public override void Fire()
     {
-        base.Fire();
+        
+        if (!onCooldown)
+        {
+            base.Fire();
+            StartCoroutine(BeginCooldown());
+            // Create bullet
+            GameObject _projectile = Instantiate(projectile, transform.position, transform.rotation);
 
-        // Create bullet
-        GameObject _projectile = Instantiate(projectile, transform.position, transform.rotation);
+            _projectile.layer = LayerMask.NameToLayer("Player");
 
-        _projectile.layer = LayerMask.NameToLayer("Player");
-
-        // Set the projectile weapon type
-        _projectile.TryGetComponent(out Projectile projComponent);
-        projComponent.weaponData = weaponType;
+            // Set the projectile weapon type
+            _projectile.TryGetComponent(out Projectile projComponent);
+            projComponent.weaponData = weaponType;
+        }
     }
 }

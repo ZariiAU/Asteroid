@@ -58,7 +58,7 @@ public class ControlHub : MonoBehaviour
         {
             boostInput.Invoke();
         }
-        if (Input.GetKeyDown(KeyCode.Space))
+        if (Input.GetKey(KeyCode.Space))
         {
             fireInput.Invoke();
         }
