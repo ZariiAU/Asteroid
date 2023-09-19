@@ -25,12 +25,12 @@ public class Asteroid : MonoBehaviour
 
     private void FixedUpdate()
     {
-        if(CheckOffScreen() == false)
+        if(Utilities.CheckOffScreen(cam, gameObject) == false)
         {
             hasEnteredScreen = true;
         }
 
-        DestroyOffScreen();
+        Utilities.LoopOffScreen(cam, rb, hasEnteredScreen);
     }
 
     private void OnCollisionEnter2D(Collision2D collision)
@@ -47,28 +47,5 @@ public class Asteroid : MonoBehaviour
         rb.AddForce((targetPosition - rb.position).normalized * Random.Range(minForce, maxForce));
     }
 
-    bool CheckOffScreen()
-    {
-        Vector2 screenPos = cam.WorldToScreenPoint(transform.position);
-        if (screenPos.x < 0 ||
-            screenPos.x > cam.pixelWidth ||
-            screenPos.y < 0 ||
-            screenPos.y > cam.pixelWidth)
-        {
-            return true;
-        }
-        else return false;
-    }
-
-    void DestroyOffScreen()
-    {
-        if(CheckOffScreen() && hasEnteredScreen)
-        {
-            hasEnteredScreen = false;
-            rb.velocity = rb.velocity;
-            rb.angularVelocity = rb.angularVelocity;
-            rb.MovePosition(-transform.position);
-            //LaunchAtTarget2D(playerRigidbody.position);
-        }
-    }
+    
 }

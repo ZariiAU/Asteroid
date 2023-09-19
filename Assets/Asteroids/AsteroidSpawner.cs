@@ -13,6 +13,7 @@ public class AsteroidSpawner : MonoBehaviour
 
     private void Start()
     {
+        cam = Camera.main;
         for(int i = 0; i < asteroidSpawnAmount; i++)
         {
             SpawnAsteroid();
@@ -21,6 +22,6 @@ public class AsteroidSpawner : MonoBehaviour
 
     public void SpawnAsteroid()
     {
-        GameObject asteroid = Instantiate(asteroidPrefab, Utilities.GetRandomPosOffScreen(), Quaternion.identity);
+        GameObject asteroid = Instantiate(asteroidPrefab, Utilities.GetRandomPosOffScreen(cam), Quaternion.identity);
     }
 }
