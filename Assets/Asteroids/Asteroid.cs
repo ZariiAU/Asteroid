@@ -7,7 +7,6 @@ public class Asteroid : MonoBehaviour
     Camera cam;
     Rigidbody2D rb;
     Rigidbody2D playerRigidbody;
-    bool hasEnteredScreen = false;
 
     [SerializeField] float damage = 5;
     [SerializeField] float maxForce = 22000;
@@ -23,21 +22,11 @@ public class Asteroid : MonoBehaviour
         LaunchAtTarget2D(playerRigidbody.position);
     }
 
-    private void FixedUpdate()
-    {
-        if(Utilities.CheckOffScreen(cam, gameObject) == false)
-        {
-            hasEnteredScreen = true;
-        }
-
-        Utilities.LoopOffScreen(cam, rb, hasEnteredScreen);
-    }
-
     private void OnCollisionEnter2D(Collision2D collision)
     {
        if(collision.collider.gameObject.layer == LayerMask.NameToLayer("Player"))
         {
-            if (collision.collider.TryGetComponent<Damageable>(out Damageable damageable))
+            if (collision.collider.TryGetComponent<IDamageable>(out IDamageable damageable))
                 damageable.Damage(damage);
         }
     }
@@ -47,5 +36,5 @@ public class Asteroid : MonoBehaviour
         rb.AddForce((targetPosition - rb.position).normalized * Random.Range(minForce, maxForce));
     }
 
-    
+
 }
