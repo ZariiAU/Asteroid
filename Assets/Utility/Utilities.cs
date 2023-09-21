@@ -33,7 +33,7 @@ public class Utilities : MonoBehaviour
     /// <param name="cam"></param>
     /// <param name="gameObject"></param>
     /// <returns></returns>
-    public static bool CheckOffScreen(Camera cam, GameObject gameObject, float screenXBoundOffset, float screenYBoundOffset, out ExitStatus exitStatus)
+    public static bool CheckOffScreen(Camera cam, GameObject gameObject, out ExitStatus exitStatus)
     {
         Vector2 screenPos = cam.WorldToScreenPoint(gameObject.transform.position);
         if (screenPos.x < 0)
@@ -41,17 +41,17 @@ public class Utilities : MonoBehaviour
             exitStatus = ExitStatus.Left;
             return true;
         }
-        else if (screenPos.x - 0.5f > cam.pixelWidth + 0.5f)
+        else if (screenPos.x > cam.pixelWidth)
         {
             exitStatus = ExitStatus.Right;
             return true;
         }
-        else if (screenPos.y < -0.5f)
+        else if (screenPos.y < 0)
         {
             exitStatus = ExitStatus.Bottom;
             return true;
         }
-        else if (screenPos.y > cam.pixelWidth + 0.5f)
+        else if (screenPos.y > cam.pixelHeight)
         {
             exitStatus = ExitStatus.Top;
             return true;
@@ -62,34 +62,35 @@ public class Utilities : MonoBehaviour
         }
     }
 
-    public static void LoopOffScreen(Camera cam, Rigidbody2D rb, bool hasEnteredScreen)
+    public static void LoopOffScreen(Camera cam, Rigidbody2D rb, ref bool hasEnteredScreen) // Pass by reference for static methods!
     {
         Vector2 screenPos = cam.WorldToScreenPoint(rb.gameObject.transform.position);
         ExitStatus exitStatus;
         GameObject gameObject = rb.gameObject;
-        if (CheckOffScreen(cam, gameObject, 0.5f, 0.5f, out exitStatus) && hasEnteredScreen)
+        if (CheckOffScreen(cam, gameObject, out exitStatus) && hasEnteredScreen)
         {
+            Vector3 rbPos = cam.WorldToScreenPoint(rb.position);
             if (exitStatus == ExitStatus.Left)
             {
-                rb.MovePosition(cam.ScreenToWorldPoint(new Vector2(cam.pixelWidth, rb.position.y)));
+                rb.MovePosition(cam.ScreenToWorldPoint(new Vector2(cam.pixelWidth, rbPos.y)));
                 Debug.Log("Exited X", gameObject);
                 hasEnteredScreen = false;
             }
             else if (exitStatus == ExitStatus.Right)
             {
-                rb.MovePosition(cam.ScreenToWorldPoint(new Vector2(0, rb.position.y)));
+                rb.MovePosition(cam.ScreenToWorldPoint(new Vector2(0, rbPos.y)));
                 Debug.Log("Exited Y", gameObject);
                 hasEnteredScreen = false;
             }
             else if (exitStatus == ExitStatus.Top)
             {
-                rb.MovePosition(cam.ScreenToWorldPoint(new Vector2(rb.position.x, 0)));
+                rb.MovePosition(cam.ScreenToWorldPoint(new Vector2(rbPos.x, 0)));
                 Debug.Log("Exited Y", gameObject);
                 hasEnteredScreen = false;
             }
             else if (exitStatus == ExitStatus.Bottom)
             {
-                rb.MovePosition(cam.ScreenToWorldPoint(new Vector2(rb.position.x, cam.pixelHeight)));
+                rb.MovePosition(cam.ScreenToWorldPoint(new Vector2(rbPos.x, cam.pixelHeight)));
                 Debug.Log("Exited Y", gameObject);
                 hasEnteredScreen = false;
             }
