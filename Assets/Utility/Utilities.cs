@@ -35,7 +35,10 @@ public class Utilities : MonoBehaviour
     /// <returns></returns>
     public static bool CheckOffScreen(Camera cam, GameObject gameObject, out ExitStatus exitStatus)
     {
+        // Get the screen position of gameObject
         Vector2 screenPos = cam.WorldToScreenPoint(gameObject.transform.position);
+
+        // Check the position vs the edge of the screen bounds & set set exit status
         if (screenPos.x < 0)
         {
             exitStatus = ExitStatus.Left;
@@ -62,6 +65,12 @@ public class Utilities : MonoBehaviour
         }
     }
 
+    /// <summary>
+    /// Uses <see cref="CheckOffScreen(Camera, GameObject, out ExitStatus)"/>'s <see cref="ExitStatus"/> to position the Rigidbody2D to the opposite side of the screen.
+    /// </summary>
+    /// <param name="cam"></param>
+    /// <param name="rb"></param>
+    /// <param name="hasEnteredScreen"></param>
     public static void LoopOffScreen(Camera cam, Rigidbody2D rb, ref bool hasEnteredScreen) // Pass by reference for static methods!
     {
         Vector2 screenPos = cam.WorldToScreenPoint(rb.gameObject.transform.position);
