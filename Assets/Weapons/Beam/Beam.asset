@@ -1,0 +1,23 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7141a76eb334b1a47baf925add7e3dfd, type: 3}
+  m_Name: Beam
+  m_EditorClassIdentifier: 
+  cooldown: 1
+  weaponName: Beam
+  damage: 1
+  speed: 0
+  lifetime: 1
+  damageInterval: 0.5
+  projectilePrefab: {fileID: 8466082321074974164, guid: 16e255bed7a03de4a8035f6ec0f69241, type: 3}
+  firingSoundEffect: {fileID: 8300000, guid: 92df9fdfedd65404ca4a9f66efed0b67, type: 3}
+  impactSoundEffect: {fileID: 8300000, guid: 25ed39e95df773448888f232dfbcf284, type: 3}

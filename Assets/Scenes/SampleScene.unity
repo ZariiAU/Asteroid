@@ -5051,9 +5051,9 @@ MonoBehaviour:
   cam: {fileID: 519420031}
   asteroidPrefab: {fileID: 4059921409334944598, guid: ffea45a15a7a17c449c3b4ab77a64a91, type: 3}
   player: {fileID: 285660502}
-  maxForce: 22000
-  minForce: 10000
-  asteroidSpawnAmount: 829
+  maxForce: 10000
+  minForce: 9000
+  asteroidSpawnAmount: 10
 --- !u!114 &498394309
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -5223,7 +5223,7 @@ MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 1861556521116061245, guid: b7390507407879e4490bd3e4b1266537, type: 3}
   m_PrefabInstance: {fileID: 2615307836711829269}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
+  m_GameObject: {fileID: 1513970571}
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: c8c8bee497cd8c94e9bd01b154d9d025, type: 3}
@@ -5234,7 +5234,7 @@ MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 2719455038435813299, guid: b7390507407879e4490bd3e4b1266537, type: 3}
   m_PrefabInstance: {fileID: 2615307836711829269}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
+  m_GameObject: {fileID: 1513970571}
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 19c54bcab4c20fd46a67109d101229a6, type: 3}
@@ -5655,6 +5655,30 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1167102725}
   m_CullTransparentMesh: 1
+--- !u!1 &1513970571 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 2417917834637904540, guid: b7390507407879e4490bd3e4b1266537, type: 3}
+  m_PrefabInstance: {fileID: 2615307836711829269}
+  m_PrefabAsset: {fileID: 0}
+--- !u!82 &1513970572 stripped
+AudioSource:
+  m_CorrespondingSourceObject: {fileID: 3300324344729461558, guid: b7390507407879e4490bd3e4b1266537, type: 3}
+  m_PrefabInstance: {fileID: 2615307836711829269}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &1513970573
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1513970571}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: bc8300d9b9c4e5847b25fe266b4358dc, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  audioSource: {fileID: 1513970572}
+  weaponType: {fileID: 11400000, guid: 8b18460433acc9341881ae6a62b1fc56, type: 2}
 --- !u!1 &1868694858
 GameObject:
   m_ObjectHideFlags: 0

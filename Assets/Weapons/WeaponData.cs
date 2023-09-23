@@ -10,6 +10,7 @@ public class WeaponData : ScriptableObject
     public float damage;
     public float speed;
     public float lifetime;
+    public float damageInterval;
     public GameObject projectilePrefab;
     public AudioClip firingSoundEffect;
     public AudioClip impactSoundEffect;
