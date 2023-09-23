@@ -128,6 +128,11 @@ GameObject:
   m_CorrespondingSourceObject: {fileID: 2615307836804113882, guid: b7390507407879e4490bd3e4b1266537, type: 3}
   m_PrefabInstance: {fileID: 2615307836711829269}
   m_PrefabAsset: {fileID: 0}
+--- !u!50 &285660507 stripped
+Rigidbody2D:
+  m_CorrespondingSourceObject: {fileID: 2615307836804113862, guid: b7390507407879e4490bd3e4b1266537, type: 3}
+  m_PrefabInstance: {fileID: 2615307836711829269}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &335553884
 GameObject:
   m_ObjectHideFlags: 0
@@ -5053,7 +5058,9 @@ MonoBehaviour:
   player: {fileID: 285660502}
   maxForce: 10000
   minForce: 9000
-  asteroidSpawnAmount: 10
+  activeWaveNumber: 0
+  asteroidWaves: 020000000400000006000000080000000a000000
+  asteroidPool: []
 --- !u!114 &498394309
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -5083,6 +5090,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   player: {fileID: 285660502}
+  playerRB: {fileID: 285660507}
 --- !u!114 &498394311
 MonoBehaviour:
   m_ObjectHideFlags: 0

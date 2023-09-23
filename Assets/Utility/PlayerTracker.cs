@@ -6,7 +6,9 @@ public class PlayerTracker : MonoBehaviour
 {
     public static PlayerTracker Instance;
     [SerializeField] GameObject player; 
+    [SerializeField] Rigidbody2D playerRB; 
     public GameObject Player { get { return player; } }
+    public Rigidbody2D PlayerRB { get { return playerRB; } }
 
     private void Awake()
     {

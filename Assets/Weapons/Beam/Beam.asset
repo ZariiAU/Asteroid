@@ -12,11 +12,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7141a76eb334b1a47baf925add7e3dfd, type: 3}
   m_Name: Beam
   m_EditorClassIdentifier: 
-  cooldown: 1
+  cooldown: 3
   weaponName: Beam
   damage: 1
   speed: 0
-  lifetime: 1
+  lifetime: 1.04
   damageInterval: 0.5
   projectilePrefab: {fileID: 8466082321074974164, guid: 16e255bed7a03de4a8035f6ec0f69241, type: 3}
   firingSoundEffect: {fileID: 8300000, guid: 92df9fdfedd65404ca4a9f66efed0b67, type: 3}

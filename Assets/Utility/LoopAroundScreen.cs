@@ -19,7 +19,7 @@ public class LoopAroundScreen : MonoBehaviour
     }
 
     // Update is called once per frame
-    void FixedUpdate()
+    void Update()
     {
         if (Utilities.CheckOffScreen(cam, gameObject, out ExitStatus exitStatus) == false)
         {
