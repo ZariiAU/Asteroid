@@ -7,16 +7,16 @@ public class AsteroidSpawner : MonoBehaviour
 {
     public static AsteroidSpawner Instance;
 
-    [SerializeField] Camera cam;
-    [SerializeField] GameObject asteroidPrefab;
-    [SerializeField] GameObject player;
-    [SerializeField] float maxForce;
-    [SerializeField] float minForce;
-    [SerializeField] int activeWaveNumber = 0;
+    [SerializeField] private Camera cam;
+    [SerializeField] private GameObject asteroidPrefab;
+    [SerializeField] private GameObject player;
+    [SerializeField] private float maxForce;
+    [SerializeField] private float minForce;
+    [SerializeField] private int activeWaveNumber = 0;
     private int activeAsteroidCount = 0;
     public int ActiveAsteroids { get { return activeAsteroidCount; } set { activeAsteroidCount = value; } }
-    [SerializeField] List<int> asteroidWaves = new List<int>();
-    [SerializeField] List<Asteroid> asteroidPool;
+    [SerializeField] private List<int> asteroidWaves = new List<int>();
+    [SerializeField] private List<Asteroid> asteroidPool;
 
     private void Awake()
     {

@@ -4,13 +4,13 @@ using UnityEngine;
 
 public class ShipMovement : MonoBehaviour
 {
-    ControlHub ch;
-    Rigidbody2D rb;
-    Vector2 velocity;
-    [SerializeField] float acceleration;
-    [SerializeField] float boostedAcceleration;
-    [SerializeField] float stoppingForce;
-    [SerializeField] float rotationSpeed;
+    private ControlHub ch;
+    private Rigidbody2D rb;
+    private Vector2 velocity;
+    [SerializeField] private float acceleration;
+    [SerializeField] private float boostedAcceleration;
+    [SerializeField] private float stoppingForce;
+    [SerializeField] private float rotationSpeed;
 
     private void Start()
     {

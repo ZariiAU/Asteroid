@@ -5,14 +5,14 @@ using UnityEngine.Events;
 
 public class Asteroid : MonoBehaviour
 {
-    Camera cam;
-    Rigidbody2D rb;
-    Rigidbody2D playerRigidbody;
+    private Camera cam;
+    private Rigidbody2D rb;
+    private Rigidbody2D playerRigidbody;
 
-    [SerializeField] float damage = 5;
-    [SerializeField] float maxForce = 22000;
-    [SerializeField] float minForce = 11000;
-    [SerializeField] Vector2 vel;
+    [SerializeField] private float damage = 5;
+    [SerializeField] private float maxForce = 22000;
+    [SerializeField] private float minForce = 11000;
+    [SerializeField] private Vector2 vel;
 
 
     private void Awake()

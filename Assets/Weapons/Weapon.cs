@@ -5,7 +5,7 @@ using UnityEngine;
 public abstract class Weapon : MonoBehaviour
 {
     [SerializeField] protected AudioSource audioSource;
-    [SerializeField] public WeaponData weaponType;
+    public WeaponData weaponType;
     protected bool onCooldown;
 
     /// <summary>

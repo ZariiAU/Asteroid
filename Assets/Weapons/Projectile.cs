@@ -5,9 +5,9 @@ using UnityEngine;
 
 public class Projectile : MonoBehaviour
 {
-    Rigidbody2D rb;
     public WeaponData weaponData;
-    string targetTag = "Enemy";
+    private Rigidbody2D rb;
+    private string targetTag = "Enemy";
 
     private void Start()
     {

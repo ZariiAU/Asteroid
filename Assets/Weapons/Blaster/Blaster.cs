@@ -4,8 +4,8 @@ using UnityEngine;
 
 public class Blaster : Weapon
 {
-    [SerializeField] LayerMask layerMask;
-    GameObject projectile;
+    [SerializeField] private LayerMask layerMask;
+    private GameObject projectile;
 
     private void Awake()
     {
