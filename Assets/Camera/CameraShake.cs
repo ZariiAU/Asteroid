@@ -2,6 +2,10 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using DG.Tweening;
+
+/// <summary>
+/// Attach to a <see cref="Camera"/> GameObject to provide camera shaking functionality
+/// </summary>
 public class CameraShake : MonoBehaviour
 {
     public static CameraShake Instance;

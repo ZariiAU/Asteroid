@@ -2,11 +2,14 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
+/// <summary>
+/// Singleton class to provide a reference to the player
+/// </summary>
 public class PlayerTracker : MonoBehaviour
 {
     public static PlayerTracker Instance;
-    [SerializeField] GameObject player; 
-    [SerializeField] Rigidbody2D playerRB; 
+    [SerializeField] private GameObject player; 
+    [SerializeField] private Rigidbody2D playerRB; 
     public GameObject Player { get { return player; } }
     public Rigidbody2D PlayerRB { get { return playerRB; } }
 

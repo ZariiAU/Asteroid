@@ -3,11 +3,11 @@ using System.Collections.Generic;
 using UnityEditor;
 using UnityEngine;
 
-
+/// <summary>
+/// A collection of helper functions used in various places
+/// </summary>
 public class Utilities : MonoBehaviour
 {
-    
-
     /// <summary>
     /// 
     /// </summary>

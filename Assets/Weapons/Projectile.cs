@@ -16,12 +16,6 @@ public class Projectile : MonoBehaviour
         StartCoroutine(StartLifetime());
     }
 
-    private void Update()
-    {
-        //transform.position += transform.up * weaponData.speed;
-        
-    }
-
     private void OnCollisionEnter2D(Collision2D collision)
     {
         if (collision.collider.CompareTag(targetTag))
@@ -32,6 +26,10 @@ public class Projectile : MonoBehaviour
         }
     }
 
+    /// <summary>
+    /// Destroys the gameObject this component is attached to after duration given by weaponData.lifetime
+    /// </summary>
+    /// <returns></returns>
     IEnumerator StartLifetime()
     {
         yield return new WaitForSeconds(weaponData.lifetime);

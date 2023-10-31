@@ -14,11 +14,11 @@ public class Blaster : Weapon
 
     public override void Fire()
     {
-        
         if (!onCooldown)
         {
             base.Fire();
             StartCoroutine(BeginCooldown());
+
             // Create bullet
             GameObject _projectile = Instantiate(projectile, transform.position, transform.rotation);
 

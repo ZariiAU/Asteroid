@@ -3,6 +3,9 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Events;
 
+/// <summary>
+/// Attach to any gameObject that can take damage
+/// </summary>
 public class Damageable : MonoBehaviour, IDamageable
 {
     [SerializeField] public UnityEvent OnDeath;
@@ -19,11 +22,14 @@ public class Damageable : MonoBehaviour, IDamageable
             health -= damageAmount;
     }
 
+    /// <summary>
+    /// Virtual function to provide hooks into the death sequence of an object
+    /// Calls <see cref="OnDeath"/> and shakes the screen
+    /// </summary>
     public virtual void Destroy()
     {
         Debug.Log("Destroyed" + gameObject.name, gameObject);
         OnDeath.Invoke();
-        if(gameObject.layer != LayerMask.NameToLayer("Player")) // Prevent the player being disabled.
         CameraShake.Instance.ShakeCamera();
     }
     private void Update()
@@ -31,6 +37,11 @@ public class Damageable : MonoBehaviour, IDamageable
         if (markedForDeath)
             DisableAfterDuration(duration);
     }
+
+    /// <summary>
+    /// Method to disable after a duration without a Coroutine
+    /// </summary>
+    /// <param name="_duration"></param>
     public void DisableAfterDuration(float _duration)
     {
         if (elapsedTime < _duration)

@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class BeamWeapon : Weapon
 {
-    GameObject projectile;
+    private GameObject projectile;
     private void Awake()
     {
         projectile = weaponType.projectilePrefab;
@@ -16,6 +16,7 @@ public class BeamWeapon : Weapon
         {
             base.Fire();
             StartCoroutine(BeginCooldown());
+
             // Create bullet
             GameObject _projectile = Instantiate(projectile, transform.position, transform.rotation, transform);
 

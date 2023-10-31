@@ -5,10 +5,10 @@ using UnityEngine.Events;
 
 public class WeaponSelect : MonoBehaviour
 {
-    [SerializeField] List<Weapon> weapons;
+    [SerializeField] private List<Weapon> weapons;
     public Weapon selectedWeapon;
     public UnityEvent OnWeaponSwitch;
-    ControlHub ch;
+    private ControlHub ch;
 
     private void Start()
     {

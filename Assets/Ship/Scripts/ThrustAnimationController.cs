@@ -5,19 +5,21 @@ using UnityEngine;
 
 public class ThrustAnimationController : MonoBehaviour
 {
-    ControlHub ch;
+    private ControlHub ch;
 
+    #region Thruster Reference Lists
     [SerializeField] List<GameObject> leftRotationalThrusters;
     [SerializeField] List<GameObject> rightRotationalThrusters;
     [SerializeField] List<GameObject> forwardThrusters;
     [SerializeField] List<GameObject> reverseThrusters;
     [SerializeField] List<GameObject> boostForwardThrusters;
+    #endregion
 
     private void Start()
     {
         ch = ControlHub.Instance;
 
-        // Pressed Input
+        #region Pressed Input
         ch.forwardInput.AddListener(() => { 
             foreach(GameObject thruster in forwardThrusters)
                 {
@@ -48,8 +50,9 @@ public class ThrustAnimationController : MonoBehaviour
                 thruster.SetActive(true);
             }
         });
+        #endregion
 
-        // Released Input
+        #region Released Input
         ch.forwardReleasedInput.AddListener(() => {
             foreach (GameObject thruster in forwardThrusters)
             {
@@ -80,5 +83,6 @@ public class ThrustAnimationController : MonoBehaviour
                 thruster.SetActive(false);
             }
         });
+        #endregion
     }
 }

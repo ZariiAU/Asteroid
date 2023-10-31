@@ -6,10 +6,10 @@ using UnityEngine;
 public class Beam : MonoBehaviour
 {
     public WeaponData weaponData;
-    string targetTag = "Enemy";
+    private string targetTag = "Enemy";
     private bool collidingWithEnemy = false;
-    List<Damageable> targets;
-    float elapsedTime;
+    private List<Damageable> targets;
+    private float elapsedTime;
 
     private void Start()
     {
@@ -17,6 +17,9 @@ public class Beam : MonoBehaviour
         StartCoroutine(StartLifetime());
     }
 
+    /// <summary>
+    /// Applies a damage over time based on <see cref="WeaponData.damageInterval"/> and <see cref="WeaponData.damage"/>
+    /// </summary>
     void DamageOverTime()
     {
         if (collidingWithEnemy)

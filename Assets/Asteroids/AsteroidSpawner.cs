@@ -3,20 +3,26 @@ using System.Collections.Generic;
 using UnityEngine;
 using static UnityEngine.GraphicsBuffer;
 
+/// <summary>
+/// Handles the spawning and tracking of <see cref="Asteroid"/>s
+/// </summary>
 public class AsteroidSpawner : MonoBehaviour
 {
     public static AsteroidSpawner Instance;
 
+    [Header("Asteroid Settings")]
     [SerializeField] private Camera cam;
     [SerializeField] private GameObject asteroidPrefab;
     [SerializeField] private GameObject player;
     [SerializeField] private float maxForce;
     [SerializeField] private float minForce;
-    [SerializeField] private int activeWaveNumber = 0;
+
+    [Header("Asteroid Wave Information")]
     private int activeAsteroidCount = 0;
     public int ActiveAsteroids { get { return activeAsteroidCount; } set { activeAsteroidCount = value; } }
-    [SerializeField] private List<int> asteroidWaves = new List<int>();
-    [SerializeField] private List<Asteroid> asteroidPool;
+    [SerializeField] private List<int> asteroidWaves = new List<int>(); // Stores the number of asteroids that should be spawned in each wave. Index of each item acts as the "wave number".
+    [SerializeField] private int activeWaveNumber = 0;
+    [SerializeField] private List<Asteroid> asteroidPool; // List of asteroids currently in the scene.
 
     private void Awake()
     {
@@ -58,12 +64,20 @@ public class AsteroidSpawner : MonoBehaviour
         }
     }
 
+    /// <summary>
+    /// Instantiates a single asteroid
+    /// </summary>
+    /// <returns>Reference to the <see cref="Asteroid"/> component on the spawned object</returns>
     public Asteroid SpawnAsteroid()
     {
         GameObject asteroid = Instantiate(asteroidPrefab, new Vector3(100, 100), Quaternion.identity);
         return asteroid.GetComponent<Asteroid>();
     }
 
+    /// <summary>
+    /// Enables a number of asteroids stored in <see cref="asteroidPool"/> based on the integer parameter, given that it is less than asteroidWaves.Count - 1
+    /// </summary>
+    /// <param name="waveID"></param>
     void SpawnWave(int waveID)
     {
         if (waveID > asteroidWaves.Count - 1)

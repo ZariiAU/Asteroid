@@ -3,10 +3,14 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Events;
 
+/// <summary>
+/// Singleton Class to Capture Inputs
+/// </summary>
 public class ControlHub : MonoBehaviour
 {
     public static ControlHub Instance { get; private set; }
 
+    #region Control Events
     public UnityEvent forwardInput;
     public UnityEvent boostInput;
     public UnityEvent backwardInput;
@@ -22,22 +26,20 @@ public class ControlHub : MonoBehaviour
 
     public UnityEvent upScrollInput;
     public UnityEvent downScrollInput;
+    #endregion
 
     private void Awake()
     {
-        // If there is an instance, and it's not me, delete myself.
+        // Create singleton
         if (Instance != null && Instance != this)
-        {
             Destroy(this);
-        }
         else
-        {
             Instance = this;
-        }
     }
 
     void Update()
     {
+        #region Input.GetKey
         if (Input.GetKey(KeyCode.W))
         {
             forwardInput.Invoke();
@@ -62,6 +64,8 @@ public class ControlHub : MonoBehaviour
         {
             fireInput.Invoke();
         }
+        #endregion
+        #region Input.GetKeyUp
         if (Input.GetKeyUp(KeyCode.W))
         {
             forwardReleasedInput.Invoke();
@@ -82,6 +86,8 @@ public class ControlHub : MonoBehaviour
         {
             boostReleasedInput.Invoke();
         }
+        #endregion
+        #region Axes
         if (Input.GetAxis("Mouse ScrollWheel") > 0)
         {
             upScrollInput.Invoke();
@@ -90,5 +96,6 @@ public class ControlHub : MonoBehaviour
         {
             downScrollInput.Invoke();
         }
+        #endregion
     }
 }

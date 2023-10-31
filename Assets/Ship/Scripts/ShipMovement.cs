@@ -20,8 +20,10 @@ public class ShipMovement : MonoBehaviour
         // Add inputs to events
         ch.forwardInput.AddListener(() => { velocity += new Vector2(transform.up.x, transform.up.y) * acceleration * Time.deltaTime; rb.velocity = velocity; });
         ch.backwardInput.AddListener(() => { velocity -= new Vector2(transform.up.x, transform.up.y) * stoppingForce * Time.deltaTime; rb.velocity = velocity; });
-        ch.leftInput.AddListener(() => { transform.eulerAngles += Vector3.forward * rotationSpeed * Time.deltaTime; rb.velocity = velocity; });
+        // Use of Vec3.forward in 2D gets vector away from the 2D plane
+        ch.leftInput.AddListener(() => { transform.eulerAngles += Vector3.forward * rotationSpeed * Time.deltaTime; rb.velocity = velocity; }); 
         ch.rightInput.AddListener(() => { transform.eulerAngles += Vector3.forward * -rotationSpeed * Time.deltaTime; rb.velocity = velocity; });
+
         ch.boostInput.AddListener(() => { velocity += new Vector2(transform.up.x, transform.up.y) * boostedAcceleration * Time.deltaTime; rb.velocity = velocity; });
 
     }

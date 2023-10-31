@@ -2,6 +2,9 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
+/// <summary>
+/// Add this component to any gameObject to make it loop around the edges of the screen
+/// </summary>
 [RequireComponent(typeof(Rigidbody2D))]
 public class LoopAroundScreen : MonoBehaviour
 {

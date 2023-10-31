@@ -3,6 +3,9 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Events;
 
+/// <summary>
+/// Contains data for Asteroid collisions and behaviours
+/// </summary>
 public class Asteroid : MonoBehaviour
 {
     private Camera cam;
@@ -12,7 +15,7 @@ public class Asteroid : MonoBehaviour
     [SerializeField] private float damage = 5;
     [SerializeField] private float maxForce = 22000;
     [SerializeField] private float minForce = 11000;
-    [SerializeField] private Vector2 vel;
+    private Vector2 vel;
 
 
     private void Awake()
@@ -20,9 +23,6 @@ public class Asteroid : MonoBehaviour
         rb = GetComponent<Rigidbody2D>();
         cam = Camera.main;
         playerRigidbody = PlayerTracker.Instance.Player.GetComponent<Rigidbody2D>();
-        
-        // Launch the Asteroid at the target.
-        //LaunchAtTarget2D(rb, playerRigidbody.position);
     }
 
     private void Update()
@@ -39,6 +39,11 @@ public class Asteroid : MonoBehaviour
         }
     }
 
+    /// <summary>
+    /// Adds a force towards <paramref name="targetPosition"/> with a magnitude between <see cref="minForce"/> and <see cref="maxForce"/>
+    /// </summary>
+    /// <param name="rb"></param>
+    /// <param name="targetPosition"></param>
     public void LaunchAtTarget2D(Rigidbody2D rb, Vector3 targetPosition)
     {
         rb.AddForce((targetPosition - rb.transform.position).normalized * Random.Range(minForce, maxForce));

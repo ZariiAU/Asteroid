@@ -9,12 +9,12 @@ public class WeaponSelectUI : MonoBehaviour
 {
     public TMP_Text weaponText;
     public WeaponSelect weaponSelect;
-    [SerializeField] float textFadeInSpeed;
-    [SerializeField] float textFadeOutSpeed;
-    [SerializeField] float textFadeDelay;
-    float alpha = 0;
-    bool fadeOut = false;
-    bool fadeIn = false;
+    [SerializeField] private float textFadeInSpeed;
+    [SerializeField] private float textFadeOutSpeed;
+    [SerializeField] private float textFadeDelay;
+    private float alpha = 0;
+    private bool fadeOut = false;
+    private bool fadeIn = false;
 
     // Start is called before the first frame update
     void Start()

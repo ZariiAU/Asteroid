@@ -2,6 +2,9 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
+/// <summary>
+/// An abstract class used to build new weapon types.
+/// </summary>
 public abstract class Weapon : MonoBehaviour
 {
     [SerializeField] protected AudioSource audioSource;
@@ -17,6 +20,10 @@ public abstract class Weapon : MonoBehaviour
         StartCoroutine(BeginCooldown());
     }
 
+    /// <summary>
+    /// Toggles the <see cref="onCooldown"/> boolean
+    /// </summary>
+    /// <returns></returns>
     public virtual IEnumerator BeginCooldown()
     {
         onCooldown = true;
