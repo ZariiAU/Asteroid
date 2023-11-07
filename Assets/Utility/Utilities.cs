@@ -79,37 +79,36 @@ public class Utilities : MonoBehaviour
         if (CheckOffScreen(cam, gameObject, out exitStatus) && hasEnteredScreen)
         {
             Vector3 rbPos = cam.WorldToScreenPoint(rb.position);
-            if (exitStatus == ExitStatus.Left)
+
+            switch (exitStatus)
             {
-                rb.MovePosition(cam.ScreenToWorldPoint(new Vector2(cam.pixelWidth, rbPos.y)));
-                Debug.Log("Exited X", gameObject);
-                hasEnteredScreen = false;
-            }
-            else if (exitStatus == ExitStatus.Right)
-            {
-                rb.MovePosition(cam.ScreenToWorldPoint(new Vector2(0, rbPos.y)));
-                Debug.Log("Exited Y", gameObject);
-                hasEnteredScreen = false;
-            }
-            else if (exitStatus == ExitStatus.Top)
-            {
-                rb.MovePosition(cam.ScreenToWorldPoint(new Vector2(rbPos.x, 0)));
-                Debug.Log("Exited Y", gameObject);
-                hasEnteredScreen = false;
-            }
-            else if (exitStatus == ExitStatus.Bottom)
-            {
-                rb.MovePosition(cam.ScreenToWorldPoint(new Vector2(rbPos.x, cam.pixelHeight)));
-                Debug.Log("Exited Y", gameObject);
-                hasEnteredScreen = false;
-            }
-            else
-            {
-                Debug.Log("How did we get here?");
+                case ExitStatus.Left:
+                    rb.MovePosition(cam.ScreenToWorldPoint(new Vector2(cam.pixelWidth, rbPos.y)));
+                    Debug.Log("Exited X", gameObject);
+                    hasEnteredScreen = false;
+                    break;
+                case ExitStatus.Right:
+                    rb.MovePosition(cam.ScreenToWorldPoint(new Vector2(0, rbPos.y)));
+                    Debug.Log("Exited Y", gameObject);
+                    hasEnteredScreen = false;
+                    break;
+                case ExitStatus.Top:
+                    rb.MovePosition(cam.ScreenToWorldPoint(new Vector2(rbPos.x, 0)));
+                    Debug.Log("Exited Y", gameObject);
+                    hasEnteredScreen = false;
+                    break;
+                case ExitStatus.Bottom:
+                    rb.MovePosition(cam.ScreenToWorldPoint(new Vector2(rbPos.x, cam.pixelHeight)));
+                    Debug.Log("Exited Y", gameObject);
+                    hasEnteredScreen = false;
+                    break;
+                default:
+                    Debug.Log("How did we get here?");
+                    break;
+
             }
         }
     }
-    
 }
 
 public enum ExitStatus
