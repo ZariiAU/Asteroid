@@ -55,7 +55,18 @@ public class AsteroidSpawner : MonoBehaviour
         SpawnWave(0);
     }
 
-    private void Update()
+    private void OnDrawGizmos()
+    {
+        foreach(Asteroid a in asteroidPool)
+        {
+            Gizmos.color = Color.red;
+            Gizmos.DrawLine(a.transform.position, player.transform.position);
+            Gizmos.color = Color.blue;
+            Gizmos.DrawLine(a.transform.position, a.GetComponent<Rigidbody2D>().velocity);
+        }
+    }
+
+    private void LateUpdate()
     {
         if (activeAsteroidCount <= 0)
         {
@@ -90,7 +101,9 @@ public class AsteroidSpawner : MonoBehaviour
             asteroidPool[i].gameObject.SetActive(true);
             asteroidPool[i].GetComponent<SpriteRenderer>().enabled = true;
             asteroidPool[i].GetComponent<PolygonCollider2D>().enabled = true;
+            asteroidPool[i].GetComponent<LoopAroundScreen>().hasEnteredScreen = false;
             asteroidPool[i].transform.position = Utilities.GetRandomPosOffScreen(cam);
+            asteroidPool[i].GetComponent<Rigidbody2D>().velocity = Vector2.zero;
             asteroidPool[i].LaunchAtTarget2D(asteroidPool[i].GetComponent<Rigidbody2D>(), PlayerTracker.Instance.Player.transform.position);
             ActiveAsteroids++;
         }

@@ -11,6 +11,7 @@ public class Asteroid : MonoBehaviour
     private Camera cam;
     private Rigidbody2D rb;
     private Rigidbody2D playerRigidbody;
+    private Damageable damageable;
 
     [SerializeField] private float damage = 5;
     [SerializeField] private float maxForce = 22000;
@@ -23,6 +24,8 @@ public class Asteroid : MonoBehaviour
         rb = GetComponent<Rigidbody2D>();
         cam = Camera.main;
         playerRigidbody = PlayerTracker.Instance.Player.GetComponent<Rigidbody2D>();
+        damageable = GetComponent<Damageable>();
+        damageable.OnDeath.AddListener(() => { rb.velocity = Vector2.zero; rb.position = Vector2.zero; });
     }
 
     private void Update()
@@ -49,4 +52,6 @@ public class Asteroid : MonoBehaviour
         rb.AddForce((targetPosition - rb.transform.position).normalized * Random.Range(minForce, maxForce));
         //Debug.DrawRay(targetPosition, rb.transform.position, Color.red, 10);
     }
+
+    
 }

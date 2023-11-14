@@ -30,6 +30,7 @@ public class Damageable : MonoBehaviour, IDamageable
     {
         Debug.Log("Destroyed" + gameObject.name, gameObject);
         OnDeath.Invoke();
+        
         CameraShake.Instance.ShakeCamera();
     }
     private void Update()
