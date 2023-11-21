@@ -5813,11 +5813,11 @@ PrefabInstance:
       objectReference: {fileID: 2100000, guid: ee64a8a208efa0149af09ec72f95257f, type: 2}
     - target: {fileID: 2615307836804113862, guid: b7390507407879e4490bd3e4b1266537, type: 3}
       propertyPath: m_Interpolate
-      value: 0
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 2615307836804113862, guid: b7390507407879e4490bd3e4b1266537, type: 3}
       propertyPath: m_CollisionDetection
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 2615307836804113863, guid: b7390507407879e4490bd3e4b1266537, type: 3}
       propertyPath: m_RootOrder

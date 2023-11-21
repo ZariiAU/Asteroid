@@ -109,6 +109,33 @@ public class Utilities : MonoBehaviour
             }
         }
     }
+
+    public static Vector3 GetPointOnEdgeOfScreen(Camera cam)
+    {
+        Vector3[] frustumCorners = new Vector3[4];
+        cam.CalculateFrustumCorners(new Rect(0, 0, 1, 1), cam.farClipPlane, Camera.MonoOrStereoscopicEye.Mono, frustumCorners);
+
+        /* CalculateFrustumCorners Output Array Index Guide
+       1 ------------ 2
+         |          |
+         |          |
+       0 ------------ 3
+
+         */
+
+        var PickXOrY = Random.Range(0, 1);
+
+        if (PickXOrY == 0)
+        {
+            var randomXPos = Random.Range(frustumCorners[0].x, frustumCorners[3].x); // 3.x = Lower right corner
+            return new Vector3(randomXPos, cam.ScreenToWorldPoint(frustumCorners[0]).x);
+        }
+        else
+        {
+            var randomYPos = Random.Range(frustumCorners[0].y, frustumCorners[1].y); //1.y = Upper Left Corner
+            return new Vector3(cam.ScreenToWorldPoint(frustumCorners[0]).y, randomYPos);
+        }
+    }
 }
 
 public enum ExitStatus

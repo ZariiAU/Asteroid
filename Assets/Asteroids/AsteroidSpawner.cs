@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using Unity.VisualScripting;
 using UnityEngine;
 using static UnityEngine.GraphicsBuffer;
 
@@ -57,7 +58,7 @@ public class AsteroidSpawner : MonoBehaviour
 
     private void OnDrawGizmos()
     {
-        foreach(Asteroid a in asteroidPool)
+        foreach (Asteroid a in asteroidPool)
         {
             Gizmos.color = Color.red;
             Gizmos.DrawLine(a.transform.position, player.transform.position);
@@ -81,7 +82,9 @@ public class AsteroidSpawner : MonoBehaviour
     /// <returns>Reference to the <see cref="Asteroid"/> component on the spawned object</returns>
     public Asteroid SpawnAsteroid()
     {
-        GameObject asteroid = Instantiate(asteroidPrefab, new Vector3(100, 100), Quaternion.identity);
+
+
+        GameObject asteroid = Instantiate(asteroidPrefab, Utilities.GetPointOnEdgeOfScreen(cam), Quaternion.identity);
         return asteroid.GetComponent<Asteroid>();
     }
 
@@ -102,10 +105,11 @@ public class AsteroidSpawner : MonoBehaviour
             asteroidPool[i].GetComponent<SpriteRenderer>().enabled = true;
             asteroidPool[i].GetComponent<PolygonCollider2D>().enabled = true;
             asteroidPool[i].GetComponent<LoopAroundScreen>().hasEnteredScreen = false;
-            asteroidPool[i].transform.position = Utilities.GetRandomPosOffScreen(cam);
+            asteroidPool[i].transform.position = Utilities.GetPointOnEdgeOfScreen(cam);
             asteroidPool[i].GetComponent<Rigidbody2D>().velocity = Vector2.zero;
             asteroidPool[i].LaunchAtTarget2D(asteroidPool[i].GetComponent<Rigidbody2D>(), PlayerTracker.Instance.Player.transform.position);
             ActiveAsteroids++;
         }
     }
+
 }
